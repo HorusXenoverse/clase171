@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Menú</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- SweetAlert --> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- El núcleo JS SDK de Firebase siempre es requerido y debe listarse primero FALTABAN LOS 3 SCRIPTS --> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script> 
+
+      <!-- Base de datos -->
+      <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCw8MXlAze7d2qDLyLbp-d_9LorSnAIgyQ",
+    authDomain: "menupizza-clase169.firebaseapp.com",
+    projectId: "menupizza-clase169",
+    storageBucket: "menupizza-clase169.appspot.com",
+    messagingSenderId: "642237421801",
+    appId: "1:642237421801:web:99c14146ed4b5a925fb878"
+  };
+
+  firebase.initializeApp(firebaseConfig)
+  firebase.analytics()
+      </script>
+
+  <!-- StyleSheet local -->
+  <link href="./style.css" rel="stylesheet"/>
+  
+  <!--Marcador Handler Src-->
+  <script src = "./js/botones.js"></script>
+  <script src = "js/markerHandler.js" ></script>
+  <script src = "js/addMarkers.js"></script>
+ 
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+
+  <a-scene 
+    embedded vr-mode-ui="enabled: false"    
+    id = "mainScene" 
+    arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+    gesture-detector button addmarker>
+
+    <!-- Cámara -->
+    <a-entity camera></a-entity>
+    
+    
+  </a-scene>
+
+  <!-- Botón div principal -->
+  <div id = "buttons">
+  </div>
+ 
+</body>
+
+</html>
